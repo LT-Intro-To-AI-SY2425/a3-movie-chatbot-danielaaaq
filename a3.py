@@ -249,8 +249,14 @@ def search_pa_list(src: List[str]) -> List[str]:
         a list of answers. Will be ["I don't understand"] if it finds no matches and
         ["No answers"] if it finds a match but no answers
     """
-    pass
-
+    for pat, act in pa_list:
+        print(pat,src)
+        val = match(pat, src)
+        print (val)
+        if val != None:
+            print(act)
+            result = act(val)
+            print(result)
 
 def query_loop() -> None:
     """The simple query loop. The try/except structure is to catch Ctrl-C or Ctrl-D
